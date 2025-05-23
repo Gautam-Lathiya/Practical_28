@@ -15,9 +15,13 @@ namespace EmployeeDAL.Repositories
         {
             return _instance;
         }
-        public void Log(string message)
+        public void Log(params List<string> message)
         {
-            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}";
+            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - ";
+            foreach (var msg in message)
+            {
+                logEntry += msg + " ";
+            }
             File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
         }
     }

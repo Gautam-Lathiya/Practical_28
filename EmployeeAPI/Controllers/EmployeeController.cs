@@ -27,7 +27,14 @@ namespace EmployeeAPI.Controllers
             {
                 return NotFound("No employees found.");
             }
-            _logger.Log($"Total employees retrieved: {result.Count}");
+
+            var names = "";
+            foreach (var item in result)
+            {
+                names += item.Name + ", ";
+            }
+
+            _logger.Log($"Total employees retrieved: {result.Count}", "\n", $"##### Names : {names}");
             return Ok(result);
         }
 
