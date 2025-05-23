@@ -1,0 +1,5 @@
+2025-05-23 13:35:28 - Total employees retrieved: 2
+2025-05-23 13:37:46 - Employee retrieved: 1, Name: Gautam Lathiya, Salary: 55000.00, DepartmentId: 2, EmailId: gautam@gmail.com, JoiningDate: 23-05-2025 06:16:02, Status: True
+2025-05-23 13:39:29 - Employee retrieved: 2, Name: Tejas Chitroda, Salary: 100000.00, DepartmentId: 1, EmailId: tejas@doodle.com, JoiningDate: 23-05-2025 12:29:57, Status: False
+2025-05-24 01:25:08 - Total employees retrieved: 2
+2025-05-24 01:27:26 - Employee retrieved: 1, Name: gautam, Salary: 122340.00, DepartmentId: 2, EmailId: gautam@gmail.com, JoiningDate: 24-05-2025 00:53:11, Status: True
