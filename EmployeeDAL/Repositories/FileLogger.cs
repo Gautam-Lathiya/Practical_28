@@ -10,19 +10,24 @@ namespace EmployeeDAL.Repositories
     {
         private static readonly FileLogger _instance = new FileLogger();
         private static readonly string logFilePath = @"../EmployeeDAL/log.txt";
+        private static readonly Lock _lock = new();    // C#13 feature: Lock type
 
         public static FileLogger Instance()
         {
             return _instance;
         }
-        public void Log(params List<string> message)
+        public void Log(params List<string> messages)  // C#13 feature: params collections
         {
-            var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - ";
-            foreach (var msg in message)
+            File.AppendAllText(logFilePath, $"{DateTime.Now}: ");
+            messages.ForEach(LogMessage); // C#13 feature: Method group natural type
+        }
+
+        public void LogMessage(string message)
+        {
+            lock (_lock)
             {
-                logEntry += msg + " ";
+                File.AppendAllText(logFilePath, $"{message}{Environment.NewLine}");
             }
-            File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
         }
     }
 }
